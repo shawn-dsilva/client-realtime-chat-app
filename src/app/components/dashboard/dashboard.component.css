@@ -1,0 +1,26 @@
+
+.sidebar {
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 20%; /* Full width */
+    height: 100%;
+    padding: 0.5rem 0.5rem;
+    color: rgba(255,255,255,.5);
+    background-color:#5376f4;
+    border-right :  2px solid#dddddd;
+  }
+
+.profile-link {
+    color: #fd4141;
+    text-align: center;
+
+}
+
+.page-header {
+    font-size: 1.5rem;
+}
+.profile {
+    border : solid;
+}
+
+

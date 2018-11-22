@@ -1,0 +1,20 @@
+<h2 class="page-header">Login</h2>
+<form (submit)="onLoginSubmit()">
+  <div class="form-group">
+    <label>Username</label>
+    <br>
+    <input type="text" [(ngModel)]="username" name="username"  class="form-control">
+  </div>
+  <br>
+  <div class="form-group">
+    <label>Password</label>
+    <br>
+    <input type="password" size="20" [(ngModel)]="password" name="password"  class="form-control">
+  </div>
+<br>
+  <input type="submit" class="submit-button" value="Login">
+<br>
+<br>
+  <a class="register-link" href="/register">Don't have an account? Sign-Up.</a>
+
+</form>

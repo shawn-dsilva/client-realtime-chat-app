@@ -1,0 +1,33 @@
+<h2 class="page-header">Register</h2>
+<form (submit)="onRegisterSubmit()">
+  <div class="form-group">
+    <label>Name</label>
+    <br>
+    <input type="text" [(ngModel)]="name" name="name" class="form-control">
+  </div>
+<br>
+  <div class="form-group">
+    <label>Username</label>
+    <br>
+    <input type="text" [(ngModel)]="username" name="username"  class="form-control">
+  </div>
+<br>
+  <div class="form-group">
+    <label>Email</label>
+    <br>
+    <input type="text" [(ngModel)]="email" name="email"  class="form-control">
+  </div>
+<br>
+  <div class="form-group">
+    <label>Password</label>
+    <br>
+    <input type="password" [(ngModel)]="password" name="password"  class="form-control">
+  </div>
+<br>
+  <input type="submit" class="submit-button" value="Submit">
+<br>
+
+<a class="register-link" href="/login">Already have an account? Log-In </a>
+
+
+</form>

@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.containter {
+  max-width: 38rem;
+  margin: 0;
+  padding: 0;
+}
+.content {
+    padding: 0;
+    margin: 0;
+}
+
+.page-header {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.form-group {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.form-control {
+  font-size: 1.5rem;
+}
+
+
+.submit-button {
+  align-content: center;
+  margin: 0 auto;
+  display: block;
+  background-color: #5376f4;
+
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -webkit-border-left-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  cursor: pointer;
+  border-style: solid;
+}
+
+.register-link {
+  display: block;
+  text-align: center;
+  color: #5376f4;
+}

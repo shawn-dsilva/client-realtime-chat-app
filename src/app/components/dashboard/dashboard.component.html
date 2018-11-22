@@ -1,0 +1,12 @@
+<div class="sidebar">
+  <div class="container">
+<div *ngIf="user">
+  <div class="profile">
+        <a class="profile-link" href="/profile"> <h3 class="page-header">{{user.name}}</h3></a>
+  </div>
+</div>
+<li class="register-link"  *ngIf="authService.loggedIn()" ><a (click)="onLogoutClick()" href="#">Logout</a></li>
+
+</div>
+
+</div>
