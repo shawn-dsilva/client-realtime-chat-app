@@ -10,11 +10,8 @@ hr {
 
 .sidebar {
     position: fixed;
-    /* Set the navbar to fixed position */
     top: 0;
-    /* Position the navbar at the top of the page */
     width: 20%;
-    /* Full width */
     height: 100%;
     padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, .5);
@@ -23,19 +20,23 @@ hr {
 }
 
 .profile h3 {
-    display: inline;
+    display: inline-block;
+    font-size: 1.8rem;
+    color: #5376f4;
+
 }
 .profile-link {
-    color: #3a339b;
     text-decoration: none;
 }
 
 .avatar {
     float: left;
+    padding: 2rem 1rem;
 }
 
 .logout{
     float:right;
+    padding: 2rem 1rem;
     font-size: 30px;
 }
 
@@ -44,19 +45,25 @@ hr {
 
 .common h3 {
     font-size: 1.5rem;
-    padding: 1rem;
+    padding-left: 1rem;
 }
 
 .common ul {
     list-style: none;
-    color: #505050;
     font-size: 1.3rem;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
 
+}
+.common li {
+    padding: 1rem 1rem;
+    color: #3b3b3b;
 }
 
 .common ul li:before {
     content: '#';
+    color: #7c7c7c;
+    font-size: 1.5rem;
+
 }
 
 
@@ -79,14 +86,13 @@ hr {
     position: fixed;
     bottom: 0;
     float: left;
-    padding-bottom: 0.2rem;
 }
 
 .text-entry input {
     border-top: 2px solid#dddddd;
     border-left: solid #ffffff;
-    padding: 10px;
-    width: 70%;
+    padding: 13px 12px;
+    width: 70.5%;
     position: fixed;
     float: left;
 }
@@ -94,11 +100,9 @@ hr {
 .send-button {
     float: right;
     width: 9%;
-    padding: 1px;
+    padding: 2px 2px;
     background-color: #5376f4;
     color: white;
-    border: none;
-    margin-right: 0.5%;
     font-size: 2rem;
     font-weight: 400;
     cursor: pointer;
