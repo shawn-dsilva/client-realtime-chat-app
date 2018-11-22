@@ -1,12 +1,38 @@
 <div class="sidebar">
   <div class="container">
-<div *ngIf="user">
-  <div class="profile">
-        <a class="profile-link" href="/profile"> <h3 class="page-header">{{user.name}}</h3></a>
+    <div *ngIf="user">
+      <div class="profile">
+
+        <a class="profile-link" href="/profile">
+          <img class="avatar" src="../../../assets/avatar.png" style="width:25px;height:25px;border:0;">
+          <h3>{{user.name}}</h3>
+        </a>
+
+        <a (click)="onLogoutClick()" href="#">
+          <img class="logout" src="../../../assets/logout_icon.png" style="width:25px;height:25px;border:0;">
+        </a>
+
+      </div>
+
+      <div class="common">
+        <h3>Chat-Rooms</h3>
+        <ul>
+          <li> General</li>
+        </ul>
+        <hr>
+        <h3>Direct Message</h3>
+      </div>
+
+    </div>
+
   </div>
-</div>
-<li class="register-link"  *ngIf="authService.loggedIn()" ><a (click)="onLogoutClick()" href="#">Logout</a></li>
 
 </div>
 
+<div>
+
+  <form class="text-entry">
+
+    <input type="text"><button type="submit" class="send-button" value="send"> ⇒ </button>
+  </form>
 </div>

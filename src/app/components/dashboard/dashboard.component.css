@@ -1,26 +1,111 @@
+* {
+    font-weight: 400;
+    color: #383838;
+}
+
+hr {
+    border: 1px solid#dddddd;
+
+}
 
 .sidebar {
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 20%; /* Full width */
+    position: fixed;
+    /* Set the navbar to fixed position */
+    top: 0;
+    /* Position the navbar at the top of the page */
+    width: 20%;
+    /* Full width */
     height: 100%;
     padding: 0.5rem 0.5rem;
-    color: rgba(255,255,255,.5);
-    background-color:#5376f4;
-    border-right :  2px solid#dddddd;
-  }
+    color: rgba(255, 255, 255, .5);
+    background-color: #ffffff;
+    border-right: 2px solid#dddddd;
+}
 
+.profile h3 {
+    display: inline;
+}
 .profile-link {
-    color: #fd4141;
-    text-align: center;
-
+    color: #3a339b;
+    text-decoration: none;
 }
 
-.page-header {
+.avatar {
+    float: left;
+}
+
+.logout{
+    float:right;
+    font-size: 30px;
+}
+
+
+
+
+.common h3 {
     font-size: 1.5rem;
+    padding: 1rem;
 }
-.profile {
-    border : solid;
+
+.common ul {
+    list-style: none;
+    color: #505050;
+    font-size: 1.3rem;
+    padding-bottom: 1rem;
+
+}
+
+.common ul li:before {
+    content: '#';
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+.text-entry {
+    width: 79%;
+    display: block;
+    float: right;
+    margin-left: 21%;
+    position: fixed;
+    bottom: 0;
+    float: left;
+    padding-bottom: 0.2rem;
+}
+
+.text-entry input {
+    border-top: 2px solid#dddddd;
+    border-left: solid #ffffff;
+    padding: 10px;
+    width: 70%;
+    position: fixed;
+    float: left;
+}
+
+.send-button {
+    float: right;
+    width: 9%;
+    padding: 1px;
+    background-color: #5376f4;
+    color: white;
+    border: none;
+    margin-right: 0.5%;
+    font-size: 2rem;
+    font-weight: 400;
+    cursor: pointer;
+
+
+}
+
+/*form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }*/
