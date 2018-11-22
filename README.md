@@ -1,6 +1,7 @@
 # server-realtime-chat-app
+**WORK IN PROGRESS**
 
-front end client for `server-realtime-chat-app`
+Front end client for `server-realtime-chat-app`
 
 ## Requirements
 
