@@ -23,10 +23,10 @@ export class DashboardComponent implements OnInit {
   message: String;
   sender: String;
 
-  senderInnerHtml: string =  '<p class="sender" ><b>{{sender.text}}</b></p>';
 
   socket = io('http://localhost:3000');
 
+  chats;
 
   constructor(
     private authService: AuthService,
@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
-
+this.chats = [];
     this.authService.getUserData().subscribe(data => {
       this.user = data.user;
       this.socket.emit('userdata', this.user);
@@ -51,9 +51,9 @@ export class DashboardComponent implements OnInit {
 
     this.chat.messages.subscribe(msg => {
       console.log(msg);
-      this.sender = msg;
-      this.senderInnerHtml = this.senderInnerHtml;
-
+      this.chats.push({
+        sender:  msg.text
+      });
     });
   }
 

@@ -37,10 +37,11 @@
 
 </div>
 
-<div *ngIf="sender" class="text-display-area">
-  <p class="sender" [innerHTML]="senderInnerHtml">{{sender.text}}</p>
-  
-</div>
+  <ul class="text-display-area">
+      <li *ngFor="let chat of chats" class="sender" >
+        {{chat.sender}}
+      </li>
+  </ul>
 
 
 <div>
