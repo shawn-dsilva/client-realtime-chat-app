@@ -81,11 +81,9 @@ hr {
 .text-entry {
     width: 79%;
     display: block;
-    float: right;
     margin-left: 21%;
     position: fixed;
     bottom: 0;
-    float: left;
 }
 
 .text-entry input {
@@ -113,3 +111,34 @@ hr {
 /*form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }*/
+
+
+.text-display-area {
+    width:79%;
+    height: 95%;
+    background-color: white;
+    display:block;
+    right: 0;
+    position:fixed;
+}
+
+.sender {
+    width: 45% auto;
+    height: 10% auto;
+    color: white;
+    padding: 1rem 1rem;
+    background-color: #5376f4;
+    display: block;
+    float:right;
+    margin-left: 70%;
+    margin-right: 1%;
+
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -webkit-border-left-radius: 20px;
+}

@@ -37,10 +37,16 @@
 
 </div>
 
+<div *ngIf="sender" class="text-display-area">
+  <p class="sender" [innerHTML]="senderInnerHtml">{{sender.text}}</p>
+  
+</div>
+
+
 <div>
 
   <form class="text-entry">
 
-    <input type="text"><button type="submit" class="send-button" value="send"> ⇒ </button>
+    <input type="text" autocomplete="off" [(ngModel)]="message" name="message" ><button type="submit" (click)="sendMessage()" class="send-button" > ⇒ </button>
   </form>
 </div>
