@@ -47,7 +47,9 @@
 <div>
 
   <form class="text-entry">
-
-    <input type="text" autocomplete="off" [(ngModel)]="message" name="message" ><button type="submit" (click)="sendMessage()" class="send-button" > ⇒ </button>
+<textarea placeholder="Type your message here" rows="1" wrap="hard" autocomplete="off"[(ngModel)]="message" name="message" (keydown.enter)="sendMessage()" >
+</textarea>
+    <button type="submit" (click)="sendMessage()" class="send-button" > ⇒ </button>
   </form>
+
 </div>

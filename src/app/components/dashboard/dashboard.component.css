@@ -88,11 +88,12 @@ hr {
     border: solid 10px #dddddd;
 }
 
-.text-entry input {
-    padding: 12px 12px;
+.text-entry textarea {
+    padding: 13px 12px;
     width: 69%;
     position: fixed;
     float: left;
+    resize: none;
 }
 
 .send-button {
