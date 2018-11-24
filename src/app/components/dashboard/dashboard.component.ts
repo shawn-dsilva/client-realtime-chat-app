@@ -16,7 +16,7 @@ import { wrapListenerWithPreventDefault } from '@angular/core/src/render3/instru
 })
 export class DashboardComponent implements OnInit {
 
-  user: Object;
+  user: any;
 
   username: String;
   name: String;
@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
 
   senderEchos;
   recvEchos;
+  userBool;
 
   constructor(
     private authService: AuthService,
@@ -56,17 +57,19 @@ this.recvEchos = [];
 
     this.chat.messages.subscribe(msg => {
       console.log(msg);
-      if (this.username ===  msg.username ) {
+      /*if (this.username ===  msg.username ) {*/
+      this.userBool = this.user.username ===  msg.username;
+      console.log(this.userBool);
       this.senderEchos.push({
         sender:  msg.username,
         text: msg.text
       });
-    } else {
+    /*} else {
       this.recvEchos.push({
         recv:  msg.username,
         text: msg.text
       });
-    }
+    }*/
 
     });
   }

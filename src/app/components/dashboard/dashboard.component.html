@@ -13,8 +13,8 @@
         </a>
 
       </div>
-<br>
-<hr>
+      <br>
+      <hr>
 
       <div class="common">
         <h3>Chat-Rooms</h3>
@@ -37,29 +37,43 @@
 
 </div>
 
-  <ul class="text-display-area">
-      <div *ngFor="let senderEcho of senderEchos" class="sender" >
-        <b>{{senderEcho.sender}}</b>
-        <br>
+<ul class="text-display-area">
+  <div *ngFor="let senderEcho of senderEchos">
+    <div *ngIf="senderEcho.sender == user.username; else otherUser" >
+      <div class="sender">
         {{senderEcho.text}}
+        <br>
       </div>
+      <div class="sender-name">{{senderEcho.sender}}</div>
+    </div>
 
+    <ng-template #otherUser>
+      <div>
+        <div class="recver">
+          {{senderEcho.text}}
+          <br>
+        </div>
+        <div class="recver-name">{{senderEcho.sender}}</div>
+      </div>
+    </ng-template>
 
-      <div *ngFor="let recvEcho of recvEchos" class="recver" >
+  </div>
+
+  <!--<div *ngFor="let recvEcho of recvEchos" class="recver" >
           <b>{{recvEcho.recv}}</b>
           <br>
           {{recvEcho.text}}
-      </div>
-  </ul>
+      </div>-->
+</ul>
 
 
 <div>
 
   <form class="text-entry">
-<textarea placeholder="Type a message..." rows="1" wrap="hard" autocomplete="off"[(ngModel)]="message" 
-name="message" (keydown.enter)="sendMessage();false" >
+    <textarea placeholder="Type a message..." rows="1" wrap="hard" autocomplete="off" [(ngModel)]="message" name="message"
+      (keydown.enter)="sendMessage();false">
 </textarea>
-    <button type="submit" (click)="sendMessage()" class="send-button" > ⇒ </button>
+    <button type="submit" (click)="sendMessage()" class="send-button"> ⇒ </button>
   </form>
 
 </div>

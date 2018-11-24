@@ -136,7 +136,7 @@ hr {
 
     word-wrap: break-word;
     color: white;
-    padding: 1rem 1rem;
+    padding: 0.5rem 0.5rem;
     background-color: #5376f4;
     display: block;
     float: right;
@@ -154,6 +154,15 @@ hr {
     -webkit-border-left-radius: 15px;
 }
 
+.sender-name {
+    margin-left: 30%;
+    margin-right: 2%;
+    padding: 2px 2px;
+    color: #7c7c7c;
+    display: block;
+    float: right;
+}
+
 
 .recver {
     max-width: 50%;
@@ -164,7 +173,7 @@ hr {
 
     word-wrap: break-word;
     color: white;
-    padding: 1rem 1rem;
+    padding: 0.5rem 0.5rem;
     background-color: #3d3d3d;
     display: block;
     float: left;
@@ -180,6 +189,15 @@ hr {
     -webkit-border-top-right-radius: 15px;
     -webkit-border-bottom-left-radius: 15px;
     -webkit-border-left-radius: 15px;
+}
+
+.recver-name {
+    margin-right: 30%;
+    margin-left: 2%;
+    padding: 2px 2px;
+    color: #7c7c7c;
+    display: block;
+    float: left;
 }
 
 /* MESSAGE DISPLAY AREA  END*/

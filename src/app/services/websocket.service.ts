@@ -19,7 +19,7 @@ export class WebsocketService {
 
     this.socket = io('http://localhost:3000');
 
-    let observable = new Observable(observer => {
+    const observable = new Observable(observer => {
       this.socket.on('message', (data) => {
         console.log('Received message from websocket Server');
         observer.next(data);
@@ -29,7 +29,7 @@ export class WebsocketService {
       }
     });
 
-    let observer = {
+  const observer = {
       next: (data: Object) => {
         this.socket.emit('message', JSON.stringify(data));
       },
