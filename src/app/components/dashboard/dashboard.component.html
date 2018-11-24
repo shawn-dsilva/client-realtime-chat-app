@@ -38,9 +38,18 @@
 </div>
 
   <ul class="text-display-area">
-      <li *ngFor="let chat of chats" class="sender" >
-        {{chat.sender}}
-      </li>
+      <div *ngFor="let senderEcho of senderEchos" class="sender" >
+        <b>{{senderEcho.sender}}</b>
+        <br>
+        {{senderEcho.text}}
+      </div>
+
+
+      <div *ngFor="let recvEcho of recvEchos" class="recver" >
+          <b>{{recvEcho.recv}}</b>
+          <br>
+          {{recvEcho.text}}
+      </div>
   </ul>
 
 

@@ -27,7 +27,8 @@ export class DashboardComponent implements OnInit {
 
   socket = io('http://localhost:3000');
 
-  chats;
+  senderEchos;
+  recvEchos;
 
   constructor(
     private authService: AuthService,
@@ -40,9 +41,12 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
-this.chats = [];
+this.senderEchos = [];
+this.recvEchos = [];
+
     this.authService.getUserData().subscribe(data => {
       this.user = data.user;
+      this.username = data.user.username;
       this.socket.emit('userdata', this.user);
     },
       err => {
@@ -52,9 +56,18 @@ this.chats = [];
 
     this.chat.messages.subscribe(msg => {
       console.log(msg);
-      this.chats.push({
-        sender:  msg.text
+      if (this.username ===  msg.username ) {
+      this.senderEchos.push({
+        sender:  msg.username,
+        text: msg.text
       });
+    } else {
+      this.recvEchos.push({
+        recv:  msg.username,
+        text: msg.text
+      });
+    }
+
     });
   }
 
