@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ChatService } from '../../services/chat.service';
 import * as io from 'socket.io-client';
+import { wrapListenerWithPreventDefault } from '@angular/core/src/render3/instructions';
 
 
 

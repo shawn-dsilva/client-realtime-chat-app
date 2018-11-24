@@ -89,7 +89,8 @@ hr {
 }
 
 .text-entry textarea {
-    padding: 13px 12px;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 14px 12px;
     width: 69%;
     position: fixed;
     float: left;
@@ -99,13 +100,13 @@ hr {
 .send-button {
     float: right;
     width: 10%;
-    padding: 2.5px 2px;
+    padding: 3px 2px;
     background-color: #5376f4;
     color: white;
     font-size: 2rem;
     font-weight: 400;
     cursor: pointer;
-    border:none;
+    border: 2px solid #5376f4;
 
 
 }
