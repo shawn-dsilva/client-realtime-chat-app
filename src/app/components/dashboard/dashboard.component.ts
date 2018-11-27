@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   senderEchos;
   recvEchos;
   userBool;
+  userList;
 
   constructor(
     private authService: AuthService,
@@ -44,6 +45,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 this.senderEchos = [];
 this.recvEchos = [];
+this.userList = [];
 
     this.authService.getUserData().subscribe(data => {
       this.user = data.user;
@@ -54,6 +56,29 @@ this.recvEchos = [];
         console.log(err);
         return false;
       });
+
+
+      this.authService.getUserList().subscribe(data => {
+        console.log(data);
+        for (let key in data) {
+          if (data.hasOwnProperty(key)) {
+            let val = data[key];
+            console.log(val);
+            this.userList.push(val);
+          }
+        }
+        /*this.userList.push({
+          user_id: data.[0].user_id,
+          username: data.[0].username,
+          email: data.[0].email,
+          name: data.[0].name
+        });*/
+      },
+        err => {
+          console.log(err);
+          return false;
+        });
+
 
     this.chat.messages.subscribe(msg => {
       console.log(msg);

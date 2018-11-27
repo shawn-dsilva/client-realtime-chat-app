@@ -16,7 +16,7 @@ hr {
 .sidebar {
     position: fixed;
     top: 0;
-    width: 20%;
+    width: 15%;
     height: 100%;
     padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, .5);
@@ -26,7 +26,7 @@ hr {
 
 .profile h3 {
     display: inline-block;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #5376f4;
 
 }
@@ -37,13 +37,15 @@ hr {
 
 .avatar {
     float: left;
-    padding: 2rem 1rem;
+    padding-top: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
 .logout {
     float: right;
-    padding: 2rem 1rem;
-    font-size: 30px;
+    padding: 23px;
 }
 
 
