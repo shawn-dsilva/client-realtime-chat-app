@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { WebsocketService } from './websocket.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Http, Headers,  } from '@angular/http';
+import { AuthService } from './auth.service';
 
 
 @Injectable({
@@ -11,7 +13,11 @@ export class ChatService {
 
   messages: Subject<any>;
 
-  constructor(private wsService: WebsocketService) {
+  constructor(
+    private wsService: WebsocketService,
+    private authservice: AuthService,
+    private http: Http
+    ) {
     this.messages = <Subject<any>>wsService
     .connect()
     .pipe(
@@ -24,5 +30,38 @@ export class ChatService {
    sendMsg(msg) {
      this.messages.next(msg);
    }
+
+
+   // Checks if a chat is already present  
+   findRecipient(recipient) {
+    const headers = new Headers({
+      'Content-Type':  'application/json',
+      'Authorization': this.authservice.authToken
+    });
+    const url = 'http://localhost:3000/chat/find/' + recipient;
+    console.log(url);
+    console.log(this.authservice.authToken + "   from findRecp()");
+    return this.http.get(url , { headers: headers })
+      .pipe(
+        map((res => res.json()))
+      );
+  }
+
+  // Creates a new chat,with sender and receiver
+  newChat(recipient) {
+    const headers = new Headers({
+      'Content-Type':  'text/plain',
+      'Authorization': this.authservice.authToken
+    });
+    const url = 'http://localhost:3000/chat/new/' + recipient;
+    console.log(url);
+    console.log(this.authservice.authToken);
+    return this.http.get(url , { headers: headers })
+      .pipe(
+        map((res => res.json()))
+      );
+  }
+
+
 
 }

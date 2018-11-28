@@ -29,7 +29,7 @@
         <hr>
         <h3>Direct Message</h3>
   <div *ngFor="let user of userList" class="userlist" >
-      <li>{{user.name}} ( {{user.username}} )</li>
+      <li><button (click)="onUserSelect(user)">{{user.name}} ({{user.username}})</button></li>
 
       </div>
 

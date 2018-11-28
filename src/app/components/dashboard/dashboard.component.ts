@@ -62,9 +62,11 @@ this.userList = [];
         console.log(data);
         for (let key in data) {
           if (data.hasOwnProperty(key)) {
-            let val = data[key];
-            console.log(val);
-            this.userList.push(val);
+              if(key !== this.user.username) {
+              let val = data[key];
+              console.log(val);
+              this.userList.push(val);
+            }
           }
         }
         /*this.userList.push({
@@ -120,6 +122,18 @@ this.userList = [];
     });
     this.router.navigate(['/login']);
     return false;
+  }
+
+  onUserSelect(user) {
+    console.log(JSON.stringify(user) +  ' has been selected');
+    this.chat.findRecipient(user._id).subscribe( (data) => {
+      console.log(data);
+      if (data.isPresent === false) {
+        this.chat.newChat(user._id).subscribe( (newchat) => {
+          console.log(newchat);
+        });
+      }
+    });
   }
 
 }
