@@ -11,6 +11,14 @@ hr {
 }
 
 
+ h3 {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+
+
+
 /* SIDEBAR  START*/
 
 .sidebar {
@@ -51,11 +59,6 @@ hr {
 
 
 
-.common h3 {
-    font-size: 1.5rem;
-    padding-left: 1rem;
-}
-
 .common ul {
     list-style: none;
     font-size: 1.3rem;
@@ -81,9 +84,9 @@ hr {
 /* INPUT  START*/
 
 .text-entry {
-    width: 78%;
+    width: 83%;
     display: block;
-    margin-left: 21%;
+    margin-left: 16%;
     position: fixed;
     bottom: 0;
     border: solid 10px #dddddd;
@@ -92,7 +95,7 @@ hr {
 .text-entry textarea {
     font-family: 'Source Sans Pro', sans-serif;
     padding: 14px 12px;
-    width: 69%;
+    width: 74%;
     position: fixed;
     float: left;
     resize: none;
@@ -100,7 +103,7 @@ hr {
 
 .send-button {
     float: right;
-    width: 10%;
+    width: 9%;
     padding: 3px 2px;
     background-color: #5376f4;
     color: white;
@@ -108,6 +111,7 @@ hr {
     font-weight: 400;
     cursor: pointer;
     border: 2px solid #5376f4;
+
 
 
 }
@@ -203,3 +207,74 @@ hr {
 }
 
 /* MESSAGE DISPLAY AREA  END*/
+
+/* USER LIST START */
+
+
+
+.userlistdiv{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 26rem;
+    width: 102%;
+    margin:0;
+    padding:0;
+    word-wrap: none;
+    
+}
+
+
+#custom-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+#custom-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(14, 165, 253, 0.3);
+    border-radius: 10px;
+
+}
+ 
+#custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #5376f4;
+  outline: 1px solid rgb(7, 112, 216);
+  border-radius: 20px;
+
+}
+
+.userlist li {
+    list-style: none;
+    padding:0;
+    margin:0;
+    word-wrap: none;
+}
+
+.userlist button {
+    border : 2px solid #dddddd;
+    border-left:none;
+    border-right:none;
+    background-color: white;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right: 50%;
+    padding-left: 20%;
+    text-align:left;
+    word-wrap: none;
+    margin-top: 5px;
+
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* USER LIST END */
