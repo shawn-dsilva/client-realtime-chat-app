@@ -32,7 +32,7 @@
 
         <ul class="userlistdiv" id="custom-scroll">
   <div *ngFor="let user of userList" class="userlist" >
-      <li><button (click)="onUserSelect(user)">{{user.name}} ({{user.username}})</button></li>
+      <li><button (click)="onUserSelect(user)">{{user.name}} <br> <span stlye="font-weight:400;">({{user.username}})</span></button></li>
 
       </div>
     </ul>

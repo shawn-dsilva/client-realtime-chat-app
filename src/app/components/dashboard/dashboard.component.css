@@ -19,6 +19,7 @@ hr {
 
 
 
+
 /* SIDEBAR  START*/
 
 .sidebar {
@@ -219,8 +220,7 @@ hr {
     width: 102%;
     margin:0;
     padding:0;
-    word-wrap: none;
-    
+
 }
 
 
@@ -235,7 +235,7 @@ hr {
 }
  
 #custom-scroll::-webkit-scrollbar-thumb {
-  background-color: #5376f4;
+  background-color: #cfcfcf;
   outline: 1px solid rgb(7, 112, 216);
   border-radius: 20px;
 
@@ -245,7 +245,8 @@ hr {
     list-style: none;
     padding:0;
     margin:0;
-    word-wrap: none;
+    
+
 }
 
 .userlist button {
@@ -253,15 +254,19 @@ hr {
     border-left:none;
     border-right:none;
     background-color: white;
-    padding-top:20px;
-    padding-bottom:20px;
-    padding-right: 50%;
-    padding-left: 20%;
+    padding-top:30px;
+    padding-bottom:30px;
+    width: 100%;
+    padding-left: 10%;
     text-align:left;
-    word-wrap: none;
-    margin-top: 5px;
-
+    margin-bottom: 10px;
     cursor: pointer;
+    font-weight: bold;
+}
+
+.userlist button:focus {
+   background-color:#ececec;
+   border: 2px solid #dddddd;
 }
 
 
