@@ -31,6 +31,10 @@ export class DashboardComponent implements OnInit {
   recvEchos;
   userBool;
   userList;
+  isActive;
+
+  currUser;
+  prevUser;
 
   constructor(
     private authService: AuthService,
@@ -125,6 +129,17 @@ this.userList = [];
   }
 
   onUserSelect(user) {
+
+    // sets isActive property of all users in list to false
+    for (const userElement of this.userList) {
+      userElement.isActive = false;
+      // console.log(entry);
+
+    }
+
+    // sets the isActive property of current user to true,highlighting it in grey
+    user.isActive = true;
+
     console.log(JSON.stringify(user) +  ' has been selected');
     this.chat.findRecipient(user._id).subscribe( (data) => {
       console.log(data);

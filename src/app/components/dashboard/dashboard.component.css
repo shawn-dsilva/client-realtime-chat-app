@@ -249,7 +249,7 @@ hr {
 
 }
 
-.userlist button {
+.default {
     border : 2px solid #dddddd;
     border-left:none;
     border-right:none;
@@ -265,12 +265,24 @@ hr {
 }
 
 .userlist button:focus {
-   background-color:#ececec;
-   border: 2px solid #dddddd;
+   outline:none;
 }
 
 
-
+.active {
+    background-color:#ececec;
+    border : 2px solid #dddddd;
+    border-left:none;
+    border-right:none;
+    padding-top:30px;
+    padding-bottom:30px;
+    width: 100%;
+    padding-left: 10%;
+    text-align:left;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
 
 
