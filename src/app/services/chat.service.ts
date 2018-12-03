@@ -39,8 +39,8 @@ export class ChatService {
       'Authorization': this.authservice.authToken
     });
     const url = 'http://localhost:3000/chat/find/' + recipient;
-    console.log(url);
-    console.log(this.authservice.authToken + "   from findRecp()");
+    //console.log(url);
+    //console.log(this.authservice.authToken + "   from findRecp()");
     return this.http.get(url , { headers: headers })
       .pipe(
         map((res => res.json()))
@@ -54,8 +54,8 @@ export class ChatService {
       'Authorization': this.authservice.authToken
     });
     const url = 'http://localhost:3000/chat/new/' + recipient;
-    console.log(url);
-    console.log(this.authservice.authToken);
+    //console.log(url);
+    //console.log(this.authservice.authToken);
     return this.http.get(url , { headers: headers })
       .pipe(
         map((res => res.json()))

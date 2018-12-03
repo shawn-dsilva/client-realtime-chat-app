@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
   author: String;
   message: String;
   sender: String;
+  conversationId: String;
 
 
   socket = io('http://localhost:3000');
@@ -108,7 +109,8 @@ this.userList = [];
 
   sendMessage() {
     const msg = {
-      user: this.user,
+      conversationId: this.conversationId,
+      user: this.user._id,
       message: this.message,
     };
 
@@ -141,12 +143,22 @@ this.userList = [];
     user.isActive = true;
 
     console.log(JSON.stringify(user) +  ' has been selected');
+
+      // Checks if chat with two users is already present
     this.chat.findRecipient(user._id).subscribe( (data) => {
       console.log(data);
-      if (data.isPresent === false) {
+      // If chat is not present,create  a new one
+      // and set conversationId with the returned conversationId
+      if (!data.isPresent) {
         this.chat.newChat(user._id).subscribe( (newchat) => {
           console.log(newchat);
+          this.conversationId = newchat.conversationId;
+          console.log('conversation id is ' + this.conversationId);
         });
+      } else {
+        // If chat is present,set conversationId to returned conversationId
+        this.conversationId = data.conversationId;
+        console.log('conversation id is ' + this.conversationId);
       }
     });
   }
