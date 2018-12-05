@@ -154,11 +154,16 @@ this.userList = [];
           console.log(newchat);
           this.conversationId = newchat.conversationId;
           console.log('conversation id is ' + this.conversationId);
+          console.log('conversation id Type is ' + typeof(this.conversationId));
+          this.socket.emit('join', { room: newchat.conversationId });
         });
       } else {
         // If chat is present,set conversationId to returned conversationId
         this.conversationId = data.conversationId;
         console.log('conversation id is ' + this.conversationId);
+        console.log('conversation id Type is ' + typeof(this.conversationId));
+        this.socket.emit('join', { room: data.conversationId });
+
       }
     });
   }
