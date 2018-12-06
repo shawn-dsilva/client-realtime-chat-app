@@ -109,8 +109,9 @@ this.userList = [];
 
   sendMessage() {
     const msg = {
-      conversationId: this.conversationId,
-      user: this.user._id,
+      user_id: this.user._id,
+      username: this.user.username,
+      name: this.user.name,
       message: this.message,
     };
 
