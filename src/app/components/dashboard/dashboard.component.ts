@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ChatService } from '../../services/chat.service';
 import * as io from 'socket.io-client';
-import { wrapListenerWithPreventDefault } from '@angular/core/src/render3/instructions';
+import { WebsocketService } from 'src/app/services/websocket.service';
 
 
 
@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
   prevUser;
 
   constructor(
+    private websocketService : WebsocketService,
     private authService: AuthService,
     private router: Router,
     private flashMessage: FlashMessagesService,
@@ -55,6 +56,7 @@ this.userList = [];
     this.authService.getUserData().subscribe(data => {
       this.user = data.user;
       this.username = data.user.username;
+      console.log(' From inside getUserData.subscribe ' + this.socket.id);
       this.socket.emit('userdata', this.user);
     },
       err => {
@@ -109,6 +111,7 @@ this.userList = [];
 
   sendMessage() {
     const msg = {
+      conversation_id: this.conversationId,
       user_id: this.user._id,
       username: this.user.username,
       name: this.user.name,
@@ -116,6 +119,7 @@ this.userList = [];
     };
 
     this.chat.sendMsg(msg);                             // sends message object
+    console.log(this.socket.id);
     this.message = null;                                  // clears input box
 
   }
@@ -156,14 +160,17 @@ this.userList = [];
           this.conversationId = newchat.conversationId;
           console.log('conversation id is ' + this.conversationId);
           console.log('conversation id Type is ' + typeof(this.conversationId));
-          this.socket.emit('join', { room: newchat.conversationId });
+          //this.socket.emit('join', { room: newchat.conversationId });
+          this.websocketService.joinRoom({ room: newchat.conversationId });
         });
       } else {
         // If chat is present,set conversationId to returned conversationId
         this.conversationId = data.conversationId;
         console.log('conversation id is ' + this.conversationId);
         console.log('conversation id Type is ' + typeof(this.conversationId));
-        this.socket.emit('join', { room: data.conversationId });
+        //this.socket.emit('join', { room: data.conversationId });
+        this.websocketService.joinRoom({ room: data.conversationId });
+
 
       }
     });
