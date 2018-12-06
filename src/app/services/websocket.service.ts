@@ -12,11 +12,21 @@ import { AuthService } from './auth.service';
 export class WebsocketService {
 
   private socket;
+  user: any;
 
   constructor(
     private authservice: AuthService,
     private http: Http
   ) {
+    this.authservice.getUserData().subscribe(data => {
+      this.user = data.user;
+      console.log(' From inside websocket.service.ts ' + this.socket.id);
+      this.socket.emit('userdata', this.user);
+    },
+      err => {
+        console.log(err);
+        return false;
+      });
    }
 
   connect(): Rx.Subject<MessageEvent> {

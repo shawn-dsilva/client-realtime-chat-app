@@ -3,7 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ChatService } from '../../services/chat.service';
-import * as io from 'socket.io-client';
+//import * as io from 'socket.io-client';
 import { WebsocketService } from 'src/app/services/websocket.service';
 
 
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
   conversationId: String;
 
 
-  socket = io('http://localhost:3000');
+  //socket = io('http://localhost:3000');
 
   senderEchos;
   recvEchos;
@@ -55,9 +55,6 @@ this.userList = [];
 
     this.authService.getUserData().subscribe(data => {
       this.user = data.user;
-      this.username = data.user.username;
-      console.log(' From inside getUserData.subscribe ' + this.socket.id);
-      this.socket.emit('userdata', this.user);
     },
       err => {
         console.log(err);
@@ -66,12 +63,12 @@ this.userList = [];
 
 
       this.authService.getUserList().subscribe(data => {
-        console.log(data);
+        //console.log(data);
         for (let key in data) {
           if (data.hasOwnProperty(key)) {
               if(key !== this.user.username) {
               let val = data[key];
-              console.log(val);
+              //console.log(val);
               this.userList.push(val);
             }
           }
@@ -92,12 +89,14 @@ this.userList = [];
     this.chat.messages.subscribe(msg => {
       console.log(msg);
       /*if (this.username ===  msg.username ) {*/
+      if (this.conversationId === msg.conversation_id) {
       this.userBool = this.user.username ===  msg.username;
       console.log(this.userBool);
       this.senderEchos.push({
         sender:  msg.username,
         text: msg.text
       });
+    }
     /*} else {
       this.recvEchos.push({
         recv:  msg.username,
@@ -119,7 +118,6 @@ this.userList = [];
     };
 
     this.chat.sendMsg(msg);                             // sends message object
-    console.log(this.socket.id);
     this.message = null;                                  // clears input box
 
   }
