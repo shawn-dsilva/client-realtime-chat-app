@@ -216,7 +216,7 @@ hr {
 .userlistdiv{
     overflow-y: auto;
     overflow-x: hidden;
-    height: 26rem;
+    height: 28rem;
     width: 102%;
     margin:0;
     padding:0;
@@ -287,7 +287,19 @@ hr {
 
 
 
-
+.defaultDisplay {
+    width: 85%;
+    height: 0%;
+    background-color: white;
+    display: block;
+    right: 0;
+    position: fixed;
+    word-wrap: break-word;
+    text-align: center;
+    color: #dddddd;
+    font-size: 5rem;
+    margin-top: -40%;
+}
 
 
 

@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
   userBool;
   userList;
   isActive;
-
+  showTextEntryArea;
   currUser;
   prevUser;
 
@@ -138,6 +138,7 @@ this.userList = [];
 
     // sets the isActive property of current user to true,highlighting it in grey
     user.isActive = true;
+    this.showTextEntryArea = true;
 
     console.log(JSON.stringify(user) +  ' has been selected');
 

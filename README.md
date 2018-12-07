@@ -1,4 +1,4 @@
-# CLIENT-REALTIME-CHAT-APP 
+# CLIENT REALTIME CHAT APP 
 
 **WORK IN PROGRESS**
 
@@ -25,3 +25,4 @@ Front end client for `server-realtime-chat-app`
 ```
     localhost:4200
 ```
+
