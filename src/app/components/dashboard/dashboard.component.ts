@@ -73,12 +73,6 @@ this.userList = [];
             }
           }
         }
-        /*this.userList.push({
-          user_id: data.[0].user_id,
-          username: data.[0].username,
-          email: data.[0].email,
-          name: data.[0].name
-        });*/
       },
         err => {
           console.log(err);
