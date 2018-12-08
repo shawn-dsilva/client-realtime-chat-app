@@ -28,79 +28,80 @@
         </ul>
       </div>
 
-        <h3>Direct Message</h3>
+      <h3>Direct Message</h3>
 
-        <ul class="userlistdiv" id="custom-scroll">
-  <div *ngFor="let user of userList" class="userlist" >
-      <li>
-        <button    [ngClass]="user.isActive ? 'active' : 'default'" 
-         (click)="onUserSelect(user)">{{user.name}} <br> 
-          <span>
-          ({{user.username}})
-        </span>
-        </button></li>
+      <ul class="userlistdiv" id="custom-scroll">
+        <div *ngFor="let user of userList" class="userlist">
+          <li>
+            <button [ngClass]="user.isActive ? 'active' : 'default'" (click)="onUserSelect(user)">{{user.name}} <br>
+              <span>
+                ({{user.username}})
+              </span>
+            </button></li>
 
-      </div>
-    </ul>
+        </div>
+      </ul>
 
     </div>
 
   </div>
 </div>
-<div *ngIf="showTextEntryArea == true; else defaultDisplay" >
-      <div>
-      <ul class="text-display-area">
-        <div *ngFor="let senderEcho of senderEchos">
-          <div *ngIf="senderEcho.sender == user.username; else otherUser" >
-            <div class="sender">
+
+
+<div *ngIf="showTextEntryArea == true; else defaultDisplay">
+  <div>
+    <ul class="text-display-area">
+      <div *ngFor="let senderEcho of senderEchos">
+        <div *ngIf="senderEcho.sender == user.username; else otherUser">
+          <div class="sender">
+            {{senderEcho.text}}
+            <br>
+          </div>
+          <div class="sender-name">{{senderEcho.sender}}</div>
+        </div>
+
+        <ng-template #otherUser>
+          <div>
+            <div class="recver">
               {{senderEcho.text}}
               <br>
             </div>
-            <div class="sender-name">{{senderEcho.sender}}</div>
+            <div class="recver-name">{{senderEcho.sender}}</div>
           </div>
+        </ng-template>
 
-          <ng-template #otherUser>
-            <div>
-              <div class="recver">
-                {{senderEcho.text}}
-                <br>
-              </div>
-              <div class="recver-name">{{senderEcho.sender}}</div>
-            </div>
-          </ng-template>
+      </div>
 
-        </div>
-
-        <!--<div *ngFor="let recvEcho of recvEchos" class="recver" >
+      <!--<div *ngFor="let recvEcho of recvEchos" class="recver" >
                 <b>{{recvEcho.recv}}</b>
                 <br>
                 {{recvEcho.text}}
             </div>-->
-      </ul>
+    </ul>
 
 
-      <div>
+    <div>
 
-        <form class="text-entry">
-          <textarea placeholder="Type a message..." rows="1" wrap="hard" autocomplete="off" [(ngModel)]="message" name="message"
-            (keydown.enter)="sendMessage();false">
+      <form class="text-entry">
+        <textarea placeholder="Type a message..." rows="1" wrap="hard" autocomplete="off" [(ngModel)]="message" name="message"
+          (keydown.enter)="sendMessage();false">
       </textarea>
-          <button type="submit" (click)="sendMessage()" class="send-button"> ⇒ </button>
-        </form>
+        <button type="submit" (click)="sendMessage()" class="send-button"> ⇒ </button>
+      </form>
 
-      </div>
-</div>
+    </div>
+  </div>
 </div>
 
 <ng-template #defaultDisplay>
-    <div class="defaultDisplay">
-      Join a Chat-Room 
-      <br>
-      or Direct Message someone 
-      <br>
-      by selecting them 
-      <br> 
-      from the left pane
-      <br>
-    </div>
+  <div class="defaultDisplay">
+    Join a Chat-Room
+    <br>
+    or Direct Message someone
+    <br>
+    by selecting them
+    <br>
+    from the left pane
+    <br>
+  </div>
 </ng-template>
