@@ -5,8 +5,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { ChatService } from '../../services/chat.service';
 //import * as io from 'socket.io-client';
 import { WebsocketService } from 'src/app/services/websocket.service';
-
-
+import * as $ from 'jquery';
 
 
 @Component({
@@ -139,6 +138,7 @@ this.userList = [];
     // sets the isActive property of current user to true,highlighting it in grey
     user.isActive = true;
     this.showTextEntryArea = true;
+    $('#text-display-area').detach();
 
     console.log(JSON.stringify(user) +  ' has been selected');
 
