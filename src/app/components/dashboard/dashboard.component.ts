@@ -138,7 +138,11 @@ this.userList = [];
     // sets the isActive property of current user to true,highlighting it in grey
     user.isActive = true;
     this.showTextEntryArea = true;
-    $('#text-display-area').detach();
+
+    //$('#text-display-area').detach();
+
+    // clears the array senderEchos,which in turn clears the displayed messages,"clearing" the screen
+    this.senderEchos.splice(0);
 
     console.log(JSON.stringify(user) +  ' has been selected');
 

@@ -50,14 +50,16 @@
 
 <div *ngIf="showTextEntryArea == true; else defaultDisplay">
   <div>
-    <ul class="text-display-area" >
+    <ul class="text-display-area"  id="text-display-area" >
       <div *ngFor="let senderEcho of senderEchos" >
-        <div *ngIf="senderEcho.sender == user.username; else otherUser" id="text-display-area">
-          <div class="sender">
-            {{senderEcho.text}}
-            <br>
-          </div>
-          <div class="sender-name">{{senderEcho.sender}}</div>
+        <div *ngIf="senderEcho.sender == user.username; else otherUser"  >
+              <div class="sender"  >
+                {{senderEcho.text}}
+                <br>
+              </div>
+              <div class="sender-name">
+                {{senderEcho.sender}}
+              </div>
         </div>
 
         <ng-template #otherUser>
