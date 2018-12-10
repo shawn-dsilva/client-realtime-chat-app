@@ -50,7 +50,7 @@ export class ChatService {
   // Creates a new chat,with sender and receiver
   newChat(recipient) {
     const headers = new Headers({
-      'Content-Type':  'text/plain',
+      'Content-Type':  'application/json',
       'Authorization': this.authservice.authToken
     });
     const url = 'http://localhost:3000/chat/new/' + recipient;
@@ -63,5 +63,16 @@ export class ChatService {
   }
 
 
+  sendReply(message) {
+    const headers = new Headers({
+      'Content-Type':  'application/json',
+      'Authorization': this.authservice.authToken
+    });
+    const url = 'http://localhost:3000/chat/' + message.conversation_id;
+    return this.http.post(url, message , { headers: headers })
+      .pipe(
+        map((res => res.json()))
+      );
+  }
 
 }

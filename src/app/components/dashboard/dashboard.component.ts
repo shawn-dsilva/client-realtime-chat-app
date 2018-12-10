@@ -111,6 +111,17 @@ this.userList = [];
     };
 
     this.chat.sendMsg(msg);                             // sends message object
+
+    const message = {
+      conversation_id: this.conversationId,
+      user_id: this.user._id,
+      text: this.message,
+    };
+
+    this.chat.sendReply(message).subscribe( (confirmation) => {
+      console.log(confirmation);
+    });
+
     this.message = null;                                  // clears input box
 
   }
