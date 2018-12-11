@@ -3,10 +3,14 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ChatService } from '../../services/chat.service';
-//import * as io from 'socket.io-client';
 import { WebsocketService } from 'src/app/services/websocket.service';
-import * as $ from 'jquery';
 
+const opts = {
+  day: 'numeric', weekday: 'short',
+  month: 'short', year: 'numeric',
+  hour: 'numeric', minute: 'numeric',
+  hour12: true,
+};
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +29,6 @@ export class DashboardComponent implements OnInit {
   conversationId: String;
 
 
-  //socket = io('http://localhost:3000');
 
   senderEchos;
   recvEchos;
@@ -35,6 +38,8 @@ export class DashboardComponent implements OnInit {
   showTextEntryArea;
   currUser;
   prevUser;
+
+  
 
   constructor(
     private websocketService : WebsocketService,
@@ -51,6 +56,7 @@ export class DashboardComponent implements OnInit {
 this.senderEchos = [];
 this.recvEchos = [];
 this.userList = [];
+
 
     this.authService.getUserData().subscribe(data => {
       this.user = data.user;
@@ -81,33 +87,29 @@ this.userList = [];
 
     this.chat.messages.subscribe(msg => {
       console.log(msg);
-      /*if (this.username ===  msg.username ) {*/
       if (this.conversationId === msg.conversation_id) {
       this.userBool = this.user.username ===  msg.username;
       console.log(this.userBool);
       this.senderEchos.push({
         author: {_id: msg.user_id, name: msg.name, username: msg.username},
-        body: msg.text
+        body: msg.body,
+        datetime: msg.datetime
       });
     }
-    /*} else {
-      this.recvEchos.push({
-        recv:  msg.username,
-        text: msg.text
-      });
-    }*/
-
     });
   }
 
 
   sendMessage() {
+    const datetime = new Date().toLocaleString('en-IN', opts);
+    console.log('CURRENT DATE IS ' + datetime);
     const msg = {
       conversation_id: this.conversationId,
       user_id: this.user._id,
       username: this.user.username,
       name: this.user.name,
-      message: this.message,
+      body: this.message,
+      datetime: datetime,
     };
 
     this.chat.sendMsg(msg);                             // sends message object
@@ -159,44 +161,27 @@ this.userList = [];
 
       // Checks if chat with two users is already present
     this.chat.findRecipient(user._id).subscribe( (data) => {
-      console.log(data);
       // If chat is not present,create  a new one
       // and set conversationId with the returned conversationId
       if (!data.isPresent) {
         this.chat.newChat(user._id).subscribe( (newchat) => {
           console.log(newchat);
           this.conversationId = newchat.conversationId;
-          console.log('conversation id is ' + this.conversationId);
-          console.log('conversation id Type is ' + typeof(this.conversationId));
           //this.socket.emit('join', { room: newchat.conversationId });
           this.websocketService.joinRoom({ room: newchat.conversationId });
         });
       } else {
         // If chat is present,set conversationId to returned conversationId
         this.conversationId = data.conversationId;
-        console.log('conversation id is ' + this.conversationId);
-        console.log('conversation id Type is ' + typeof(this.conversationId));
         //this.socket.emit('join', { room: data.conversationId });
         this.websocketService.joinRoom({ room: data.conversationId });
 
-        this.chat.getMessages(this.conversationId).subscribe( (data) => {
-          // console.log(data);
-          // for (let i in data) {
-          //   console.log(data.conversation.length);
-          //   console.log(data[i]);
-          // }
-          for (let i = data.conversation.length - 1; i >= 0; i--) {
-            console.log(data.conversation[i]);
-            const opts = {
-              day: 'numeric', weekday: 'short',
-              month: 'short', year: 'numeric',
-              hour: 'numeric', minute: 'numeric',
-              hour12: true,
-            };
-            const datetime = new Date(data.conversation[i].createdAt).toLocaleString('en-IN' , opts );
-            data.conversation[i].datetime = datetime;
+        this.chat.getMessages(this.conversationId).subscribe( (message) => {
+          for (let i = message.conversation.length - 1; i >= 0; i--) {
+            const datetime = new Date(message.conversation[i].createdAt).toLocaleString('en-IN' , opts );
+            message.conversation[i].datetime = datetime;
 
-            this.senderEchos.push(data.conversation[i]);
+            this.senderEchos.push(message.conversation[i]);
           }
         });
 
