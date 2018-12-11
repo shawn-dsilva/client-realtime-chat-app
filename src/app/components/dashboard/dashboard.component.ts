@@ -86,8 +86,8 @@ this.userList = [];
       this.userBool = this.user.username ===  msg.username;
       console.log(this.userBool);
       this.senderEchos.push({
-        sender:  msg.username,
-        text: msg.text
+        author: {_id: msg.user_id, name: msg.name, username: msg.username},
+        body: msg.text
       });
     }
     /*} else {
@@ -179,6 +179,17 @@ this.userList = [];
         //this.socket.emit('join', { room: data.conversationId });
         this.websocketService.joinRoom({ room: data.conversationId });
 
+        this.chat.getMessages(this.conversationId).subscribe( (data) => {
+          // console.log(data);
+          // for (let i in data) {
+          //   console.log(data.conversation.length);
+          //   console.log(data[i]);
+          // }
+          for (let i = data.conversation.length - 1; i >= 0; i--) {
+            console.log(data.conversation[i]);
+            this.senderEchos.push(data.conversation[i]);
+          }
+        });
 
       }
     });

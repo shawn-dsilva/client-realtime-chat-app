@@ -75,4 +75,16 @@ export class ChatService {
       );
   }
 
+  getMessages(conversationId) {
+    const headers = new Headers({
+      'Content-Type':  'application/json',
+      'Authorization': this.authservice.authToken
+    });
+    const url = 'http://localhost:3000/chat/' + conversationId;
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        map((res => res.json()))
+      );
+  }
+
 }

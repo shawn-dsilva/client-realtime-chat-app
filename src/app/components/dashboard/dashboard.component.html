@@ -52,23 +52,23 @@
   <div>
     <ul class="text-display-area"  id="text-display-area" >
       <div *ngFor="let senderEcho of senderEchos" >
-        <div *ngIf="senderEcho.sender == user.username; else otherUser"  >
+        <div *ngIf="senderEcho.author._id == user._id; else otherUser"  >
               <div class="sender"  >
-                {{senderEcho.text}}
+                {{senderEcho.body}}
                 <br>
               </div>
               <div class="sender-name">
-                {{senderEcho.sender}}
+                {{senderEcho.author.username}}
               </div>
         </div>
 
         <ng-template #otherUser>
           <div>
             <div class="recver">
-              {{senderEcho.text}}
+              {{senderEcho.body}}
               <br>
             </div>
-            <div class="recver-name">{{senderEcho.sender}}</div>
+            <div class="recver-name">{{senderEcho.author.username}}</div>
           </div>
         </ng-template>
 
