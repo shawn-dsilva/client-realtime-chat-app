@@ -58,7 +58,7 @@
                 <br>
               </div>
               <div class="sender-name">
-                {{senderEcho.author.username}}
+                {{senderEcho.author.username}} at {{senderEcho.datetime}}
               </div>
         </div>
 
@@ -68,7 +68,7 @@
               {{senderEcho.body}}
               <br>
             </div>
-            <div class="recver-name">{{senderEcho.author.username}}</div>
+            <div class="recver-name">{{senderEcho.author.username}}   {{senderEcho.datetime}}</div>
           </div>
         </ng-template>
 

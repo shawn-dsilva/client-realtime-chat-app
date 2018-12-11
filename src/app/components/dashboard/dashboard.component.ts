@@ -187,6 +187,9 @@ this.userList = [];
           // }
           for (let i = data.conversation.length - 1; i >= 0; i--) {
             console.log(data.conversation[i]);
+            let datetime = new Date(data.conversation[i].createdAt).toLocaleString('en-IN' , { weekday: '', hour: 'numeric', minute: 'numeric', hour12: true });
+            data.conversation[i].datetime = datetime;
+
             this.senderEchos.push(data.conversation[i]);
           }
         });
