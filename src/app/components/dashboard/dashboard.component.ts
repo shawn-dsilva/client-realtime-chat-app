@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -17,7 +17,7 @@ const opts = {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewChecked {
 
   user: any;
 
@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
   message: String;
   sender: String;
   conversationId: String;
+  container: HTMLElement;
 
 
 
@@ -94,12 +95,27 @@ this.userList = [];
         author: {_id: msg.user_id, name: msg.name, username: msg.username},
         body: msg.body,
         datetime: msg.datetime
-      });
-    }
+        });
+        this.scrollToBottom();
+      }
+
     });
+
   }
 
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
 
+  scrollToBottom(): void {
+    try {
+      this.container = document.getElementById('text-display-area');
+      console.log(this.container);
+      console.log(this.container.scrollHeight);
+      this.container.scrollTop = this.container.scrollHeight;
+      console.log(this.container.scrollTop);
+    } catch (err) { }
+}
   sendMessage() {
     const datetime = new Date().toLocaleString('en-IN', opts);
     console.log('CURRENT DATE IS ' + datetime);
@@ -180,13 +196,15 @@ this.userList = [];
           for (let i = message.conversation.length - 1; i >= 0; i--) {
             const datetime = new Date(message.conversation[i].createdAt).toLocaleString('en-IN' , opts );
             message.conversation[i].datetime = datetime;
-
             this.senderEchos.push(message.conversation[i]);
+
           }
+
         });
 
       }
     });
+
   }
 
 }

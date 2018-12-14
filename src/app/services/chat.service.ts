@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { WebsocketService } from './websocket.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ChatService {
-
+  container: HTMLElement;
   messages: Subject<any>;
 
   constructor(
@@ -87,4 +87,7 @@ export class ChatService {
       );
   }
 
+
+
 }
+
