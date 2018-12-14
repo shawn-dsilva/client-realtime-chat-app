@@ -12,8 +12,8 @@ hr {
 
 
  h3 {
-    font-size: 1.5rem;
-    padding-left: 1rem;
+    font-size: 20px;
+    padding-left: 20px;
 }
 
 
@@ -25,7 +25,7 @@ hr {
 .sidebar {
     position: fixed;
     top: 0;
-    width: 15%;
+    width: 10%;
     height: 100%;
     padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, .5);
@@ -35,7 +35,7 @@ hr {
 
 .profile h3 {
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #5376f4;
 
 }
@@ -62,20 +62,20 @@ hr {
 
 .common ul {
     list-style: none;
-    font-size: 1.3rem;
+    font-size: 20px;
     padding-bottom: 2rem;
 
 }
 
 .common li {
-    padding: 1rem 1rem;
+    padding: 20px 20px;
     color: #3b3b3b;
 }
 
 .common ul li:before {
     content: '#';
     color: #7c7c7c;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 
 }
 
