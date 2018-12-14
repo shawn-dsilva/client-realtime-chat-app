@@ -89,9 +89,9 @@ hr {
 /* INPUT  START*/
 
 .text-entry {
-    width: 83%;
+    width: 86%;
     display: block;
-    margin-left: 16%;
+    margin-left: 13%;
     position: fixed;
     bottom: 0;
     border: solid 10px #dddddd;
@@ -100,7 +100,7 @@ hr {
 .text-entry textarea {
     font-family: 'Source Sans Pro', sans-serif;
     padding: 14px 12px;
-    width: 74%;
+    width: 76%;
     position: fixed;
     float: left;
     resize: none;
@@ -108,7 +108,7 @@ hr {
 
 .send-button {
     float: right;
-    width: 9%;
+    width: 10%;
     padding: 3px 2px;
     background-color: #5376f4;
     color: white;
@@ -126,7 +126,7 @@ hr {
 /* MESSAGE DISPLAY AREA  START*/
 
 .text-display-area {
-    width: 77%;
+    width: 85%;
     height: 95%;
     background-color: white;
     display: block;
@@ -135,7 +135,11 @@ hr {
     margin: 0;
     word-wrap: break-word;
     overflow: auto;
+    padding:0;
+}
 
+.text-display-area ul {
+    padding:0;
 }
 
 .sender {
@@ -176,7 +180,7 @@ hr {
 
 
 .recver {
-    max-width: 50%;
+    max-width: 30%;
     width: auto;
 
     /*max-height: 45%;*/
@@ -188,7 +192,6 @@ hr {
     background-color: #3d3d3d;
     display: block;
     float: left;
-    margin-left: 1%;
     margin-right: 70%;
     margin-top: 1%;
     left: 0;
