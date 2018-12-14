@@ -26,7 +26,7 @@ Front end client for `server-realtime-chat-app`
     localhost:4200
 ```
 
-##Implemented Features
+## Implemented Features
 - Login & Registration
 - Basic Chat UI
 - Direct messaging between two users in real-time
@@ -34,14 +34,14 @@ Front end client for `server-realtime-chat-app`
 - Date-Time on messages
 
 
-##TODO
-#High Priority
+## TODO
+# High Priority
 - Custom avatar uploading
 - Richer profile page
 - Group Chat/Chatroom functionality and UI
 - Most recent message snippet display in user tile or chatroom tile
 
-#Low Priority
+# Low Priority
 - Emoji menu support
 - Binary(video,picture,audio) sending/upload support
 - Global search for users or chatrooms
