@@ -10,7 +10,6 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ChatService {
-  container: HTMLElement;
   messages: Subject<any>;
 
   constructor(
