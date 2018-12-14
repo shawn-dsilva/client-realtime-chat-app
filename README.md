@@ -27,11 +27,11 @@ Front end client for `server-realtime-chat-app`
 ```
 
 ## Implemented Features
-- Login & Registration
-- Basic Chat UI
-- Direct messaging between two users in real-time
-- Recent message loading on clicking user entry in left pane
-- Date-Time on messages
+✔️  Login & Registration
+✔️  Basic Chat UI
+✔️  Direct messaging between two users in real-time
+✔️  Recent message loading on clicking user entry in left pane
+✔️  Date-Time on messages
 
 
 ## TODO
