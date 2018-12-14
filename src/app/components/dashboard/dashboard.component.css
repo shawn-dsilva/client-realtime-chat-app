@@ -7,13 +7,14 @@
 
 hr {
     border: 1px solid#dddddd;
-
+    padding:0;
+    margin:0;
 }
 
 
  h3 {
-    font-size: 20px;
-    padding-left: 20px;
+    font-size: 1.3rem;
+    padding-left: 1rem;
 }
 
 
@@ -25,7 +26,7 @@ hr {
 .sidebar {
     position: fixed;
     top: 0;
-    width: 10%;
+    width: 12%;
     height: 100%;
     padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, .5);
@@ -37,6 +38,7 @@ hr {
     display: inline-block;
     font-size: 1.3rem;
     color: #5376f4;
+    padding:5px;
 
 }
 
@@ -47,14 +49,13 @@ hr {
 .avatar {
     float: left;
     padding-top: 18px;
-    padding-left: 10px;
-    padding-right: 10px;
 
 }
 
 .logout {
     float: right;
-    padding: 23px;
+    padding-top: 25px;
+
 }
 
 
@@ -62,14 +63,17 @@ hr {
 
 .common ul {
     list-style: none;
-    font-size: 20px;
-    padding-bottom: 2rem;
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    margin:0;
 
 }
 
 .common li {
-    padding: 20px 20px;
+    padding: 5px 5px;
     color: #3b3b3b;
+    padding-bottom: 2rem;
+
 }
 
 .common ul li:before {
@@ -220,7 +224,6 @@ hr {
     width: 102%;
     margin:0;
     padding:0;
-
 }
 
 
@@ -237,7 +240,7 @@ hr {
 #custom-scroll::-webkit-scrollbar-thumb {
   background-color: #cfcfcf;
   outline: 1px solid rgb(7, 112, 216);
-  border-radius: 20px;
+  border-radius: 1rem;
 
 }
 
@@ -245,7 +248,6 @@ hr {
     list-style: none;
     padding:0;
     margin:0;
-    
 
 }
 
@@ -253,21 +255,24 @@ hr {
     border : 2px solid #dddddd;
     border-left:none;
     border-right:none;
+    border-top:none;
     background-color: white;
     padding-top:30px;
     padding-bottom:30px;
     width: 100%;
     padding-left: 10%;
     text-align:left;
-    margin-bottom: 10px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .userlist button:focus {
    outline:none;
 }
-
+.userlist button {
+    font-size: 14px;
+ }
+ 
 
 .active {
     background-color:#ececec;
@@ -282,6 +287,7 @@ hr {
     margin-bottom: 10px;
     cursor: pointer;
     font-weight: bold;
+
 }
 
 
