@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ChatService } from '../../services/chat.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
+import { nextContext } from '@angular/core/src/render3';
 
 const opts = {
   day: 'numeric', weekday: 'short',
@@ -98,7 +99,6 @@ this.userList = [];
         body: msg.body,
         datetime: msg.datetime
         });
-        this.scrollToBottom();
       }
 
     });
@@ -122,14 +122,15 @@ this.userList = [];
 
 
   scrollToBottom(): void {
-    if (this.disableScrollDown) {
-      return;
-    }
-    try {
-      this.container = document.getElementById('text-display-area');
-      this.container.scrollTop = this.container.scrollHeight;
-    } catch (err) { }
-}
+      if (this.disableScrollDown) {
+        return;
+      }
+      try {
+        this.container = document.getElementById('text-display-area');
+        this.container.scrollTop = this.container.scrollHeight;
+      } catch (err) { }
+  }
+ 
 
   sendMessage() {
     const datetime = new Date().toLocaleString('en-IN', opts);
@@ -156,7 +157,7 @@ this.userList = [];
     });
 
     this.message = null;                                  // clears input box
-
+    this.disableScrollDown = false;
   }
 
 
