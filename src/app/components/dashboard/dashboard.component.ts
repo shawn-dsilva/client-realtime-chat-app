@@ -99,6 +99,7 @@ this.userList = [];
         body: msg.body,
         datetime: msg.datetime
         });
+        this.disableScrollDown = false;
       }
 
     });
