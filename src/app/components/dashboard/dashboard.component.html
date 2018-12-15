@@ -55,7 +55,7 @@
 
 <div *ngIf="showTextEntryArea == true; else defaultDisplay">
   <div>
-    <ul class="text-display-area"  id="text-display-area" >
+    <ul class="text-display-area"  id="text-display-area" (scroll)="onScroll()">
       <div *ngFor="let senderEcho of senderEchos" >
         <div *ngIf="senderEcho.author._id == user._id; else otherUser"  >
               <div class="sender"  >

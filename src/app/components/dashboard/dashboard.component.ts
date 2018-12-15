@@ -39,6 +39,7 @@ export class DashboardComponent implements OnInit, AfterViewChecked {
   showTextEntryArea;
   currUser;
   prevUser;
+  disableScrollDown = false;
 
   
 
@@ -57,6 +58,7 @@ export class DashboardComponent implements OnInit, AfterViewChecked {
 this.senderEchos = [];
 this.recvEchos = [];
 this.userList = [];
+
 
 
     this.authService.getUserData().subscribe(data => {
@@ -103,19 +105,32 @@ this.userList = [];
 
   }
 
-  ngAfterViewChecked() {
-    this.scrollToBottom();
+    ngAfterViewChecked() {
+      this.scrollToBottom();
+    }
+
+
+    private onScroll() {
+      let element = this.container;
+      let atBottom = element.scrollHeight - element.scrollTop === element.clientHeight;
+      if (this.disableScrollDown && atBottom) {
+          this.disableScrollDown = false;
+      } else {
+          this.disableScrollDown = true;
+      }
   }
 
+
   scrollToBottom(): void {
+    if (this.disableScrollDown) {
+      return;
+    }
     try {
       this.container = document.getElementById('text-display-area');
-      console.log(this.container);
-      console.log(this.container.scrollHeight);
       this.container.scrollTop = this.container.scrollHeight;
-      console.log(this.container.scrollTop);
     } catch (err) { }
 }
+
   sendMessage() {
     const datetime = new Date().toLocaleString('en-IN', opts);
     console.log('CURRENT DATE IS ' + datetime);
